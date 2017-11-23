@@ -1,5 +1,4 @@
 <?php
-include "./vendor/autoload.php";
 
 
 //$pathToScan = '/media/sauvank/Film/movies/Action/';
