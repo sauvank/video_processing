@@ -1,8 +1,8 @@
 <?php
 
 
-//$pathToScan = '/media/sauvank/Film/movies/Action/';
-$pathToScan = './video/';
+$pathToScan = '/media/sauvank/Film/movies/Action/';
+//$pathToScan = './video/';
 $pathImg = './img/';
 $pathVideo = './videos_mp4/';
 //splitVideo('test.mkv','00:00:05','00:00:10','output-movie.mkv');
@@ -11,17 +11,15 @@ $allFiles = scanFolder($pathToScan,'avi|mp4|mkv');
 
 foreach($allFiles as $key => $value){
 
-    $fullPathVideo = $value['dirname'].'/'.$value['basename'];
-    $timeToShoot = '10';
-    $pathOutputImg = $pathImg.$value['filename'].'.png';
-    var_dump($fullPathVideo);
-    getImageFromVideo($fullPathVideo,$timeToShoot,$pathOutputImg);
+    $timeBegin = '00:15:00';
+    $timeStop  = '00:00:15';
 
+    $fullPathVideo   = $value['dirname'].'/'.$value['basename'];
+    $pathOutputImg   = $pathImg.$value['filename'].'.png';
+    $pathOutputVideo = $pathVideo.$value['filename'].'.mp4';
 
-//    $timeBegin = '00:00:00';
-//    $timeStop = '00:00:10';
-//    $pathOutput = $pathVideo.$value['filename'].'.mp4';
-//    splitVideo($fullPathVideo, $timeBegin, $timeStop, $pathOutput);
+    getImageFromVideo($fullPathVideo,$timeBegin,$pathOutputImg);
+    splitVideo($fullPathVideo, $timeBegin, $timeStop, $pathOutputVideo);
 
 }
 
